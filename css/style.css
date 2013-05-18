@@ -1,0 +1,22 @@
+body {
+	background: black;
+	text-align:center;
+	font-family: Arial;
+}
+h1 {
+	color: white;
+}
+#container {
+	width: 960px;
+	margin: 0 auto;
+}
+ul.jams li {
+	text-align:center;
+	padding: 30px;
+	width: 100%;
+	margin: 10px;
+	display:block;
+}
+.title {
+	display: none;
+}
