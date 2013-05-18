@@ -21,21 +21,36 @@ $data = json_decode(file_get_contents($query), true);
 	<ul class="jams">
 	<?php
 	foreach($data['jams'] as $jam) {	
-		if ($jam['artist'] == "Red Hot Chili Peppers" && 
-			$jam['via'] == 'youtube') {
+		if ($jam['artist'] == "Red Hot Chili Peppers") {
 			
-			$videoId = array_pop(explode('=', $jam['viaUrl']));
 			?>
 			<li style="background-image: url('<?php echo $jam['background']; ?>')">
 			
 				<div class="title"><?php echo $jam['title']; ?></div>
-				<div class="video">
 				
-					<iframe id="player" type="text/html" width="640" height="360"
-					  src="http://www.youtube.com/embed/<?php echo $videoId; ?>?enablejsapi=1&origin=http://chilijam.iainmullan.com"
-					  frameborder="0"></iframe>
-				
+				<div class="player">
+
+				<?php
+				if ($jam['via'] == 'youtube') {
+					$videoId = array_pop(explode('=', $jam['viaUrl']));
+					?>
+
+						<iframe id="player" type="text/html" width="640" height="360"
+						  src="http://www.youtube.com/embed/<?php echo $videoId; ?>?enablejsapi=1&origin=http://chilijam.iainmullan.com"
+						  frameborder="0"></iframe>
+
+					<?php
+					
+				} else if ($jam['via'] == 'vimeo') {
+					$videoId = array_pop(explode('/', $jam['viaUrl']));
+					
+					?>
+					<iframe src="http://player.vimeo.com/video/<?php echo $videoId; ?>" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>						
+					<?php
+				}
+				?>
 				</div>
+				
 			</li>
 			<?php		
 		}
