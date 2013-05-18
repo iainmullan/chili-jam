@@ -33,7 +33,9 @@ $data = json_decode(file_get_contents($query), true);
 	
 	<div id="container">
 		
-	<h1>Chili Jam</h1>
+		<div id="header">
+			<h1><img src="img/header.jpg" alt="Chili Jam" width="640" height="91" /></h1>
+		</div>
 	
 	<ul class="jams">
 	<?php

@@ -10,6 +10,10 @@ h1 {
 	width: 960px;
 	margin: 0 auto;
 }
+
+#header {
+	margin-top: 10px;
+}
 ul.jams li {
 	text-align:center;
 	padding: 30px;
