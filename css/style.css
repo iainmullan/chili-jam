@@ -15,8 +15,23 @@ ul.jams li {
 	padding: 30px;
 	width: 100%;
 	margin: 10px;
+	display:none;
+}
+
+ul.jams li.chili {
 	display:block;
 }
-.title {
+
+.title,
+.artist,
+.via {
+	background: rgba(0,0,0,0.4);
+	color: white;
 	display: none;
+}
+
+#social {
+	position: absolute;
+	top: 10px;
+	right: 10px;
 }
