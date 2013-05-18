@@ -2,7 +2,7 @@
 define('API_KEY', '8d5305371596640df4aab65c6db928617611d93a');
 define('API_SECRET', 'cb3ce7693fa4ae5ce6f9dc9955a7bd3e19d7b751');
 
-$query = "http://api.thisismyjam.com/1/search/jam.json?by=artist&q=red+hot+chili+peppers";
+$query = "http://api.thisismyjam.com/1/search/jam.json?by=artist&q=red+hot+chili+peppers&key=".API_KEY;
 
 $data = json_decode(file_get_contents($query), true);
 
