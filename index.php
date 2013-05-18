@@ -10,6 +10,7 @@ $data = json_decode(file_get_contents($query), true);
 <html>
 <head>
 	<title>Chili Jam</title>
+	<link href="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 	
 	<meta property="fb:admins" content="714655333" />
