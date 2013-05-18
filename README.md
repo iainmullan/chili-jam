@@ -1,1 +1,1 @@
-A Red Hot Chili Peppers hack by Iain Mullan, powered by This Is My Jam
+A Red Hot Chili Peppers flavoured hack by [Iain Mullan](http://www.iainmullan.com), powered by [This Is My Jam](http://www.thisismyjam.com)
