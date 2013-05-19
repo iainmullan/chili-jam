@@ -13,7 +13,7 @@ $data = $api->search();
 	<title>Chili Jam</title>
 	<link href="css/reset.css" rel="stylesheet" type="text/css" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	
+
 	<meta property="fb:admins" content="714655333" />
 	<meta property="og:title" content="Chili Jam" />
 	<meta property="og:description" content="A Red Hot Chili Peppers flavoured hack by Iain Mullan" />
@@ -24,36 +24,39 @@ $data = $api->search();
 </head>
 <body>
 	<div id="fb-root"></div>
-	
+
 	<div id="social" style="margin-top: 3px">
 		<div class="fb-like" data-href="http://chilijam.iainmullan.com" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
 		<div style="display:inline; margin-top: 5px;"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://chilijam.iainmullan.com" data-related="iainmullan">Tweet</a></div>
-
+		<a href="http://twitter.com/iainmullan" class="twitter-follow-button" data-show-count="false">Follow @iainmullan</a>
 	</div>
-	
+
 	<div id="container">
-		
+
 		<div id="header">
 			<h1><img src="img/header.jpg" alt="Chili Jam" width="640" height="91" /></h1>
+			<div id="footer">
+				A Red Hot Chili Peppers flavoured hack by <a href="http://www.iainmullan.com" target="_blank">Iain Mullan</a>, powered by <a href="Http://www.thisismyjam.com" target="_blank">This Is My Jam</a>
+			</div>
 		</div>
-	
+
 		<ul class="jams">
 		<?php
 		foreach($data['jams'] as $jam) {
 
 			$classes = $jam['via'];
 			$isChili = false;
-		
+
 			if ($jam['artist'] == "Red Hot Chili Peppers") {
 				$isChili = true;
 				$classes .= ' chili';
 			}
-		
+
 			?>
 			<li style="background-image: url('<?php echo $jam['background']; ?>')" class="<?php echo $classes; ?>">
-			
+
 				<div class="title"><?php echo $jam['title']; ?></div>
-			
+
 				<div class="player">
 					<?php
 					if ($isChili) {
@@ -71,11 +74,17 @@ $data = $api->search();
 							$videoId = array_pop(explode('/', $jam['viaUrl']));
 
 							?>
-							<iframe src="http://player.vimeo.com/video/<?php echo $videoId; ?>" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>						
+							<iframe src="http://player.vimeo.com/video/<?php echo $videoId; ?>" width="640" height="360" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 							<?php
-						}				
-					}			
+						}
+					}
 					?>
+				</div>
+
+				<?php $date = strtotime($jam['creationDate']); ?>
+				<div class="author">
+					Jammed by <a href="http://thisismyjam.com/<?php echo $jam['from']; ?>" target="_blank"><?php echo $jam['from']; ?></a>
+					on <a href="<?php echo $jam['url']; ?>" target="_blank"><?php echo date('l', $date)." at ".date('g:ia', $date); ?></a>
 				</div>
 
 				<div class="title"><?php echo $jam['title']; ?></div>
@@ -83,18 +92,15 @@ $data = $api->search();
 
 				<div class="via">via <?php echo $jam['via']; ?></div>
 			</li>
-			<?php		
+			<?php
 		}
 		?>
 		</ul>
-	
-		<div id="footer">
-			A Red Hot Chili Peppers flavoured hack by <a href="http://www.iainmullan.com" target="_blank">Iain Mullan</a>, powered by <a href="Http://www.thisismyjam.com" target="_blank">This Is My Jam</a>
-		</div>
-		
+
+
 	</div>
 
-	
+
 	<script>(function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
@@ -115,7 +121,7 @@ $data = $api->search();
 	  ga('send', 'pageview');
 
 	</script>
-	
+
 
 </body>
 </html>
